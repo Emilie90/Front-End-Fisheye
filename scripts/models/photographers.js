@@ -27,7 +27,7 @@ class Photographers {
     return this._country;
   }
   get price() {
-    return this._price;
+    return `${this._price}€ / jour`;
   }
   get portrait() {
     return `assets/photographers/${this._portrait}`;

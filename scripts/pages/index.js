@@ -7,9 +7,9 @@ class App {
   }
   async main() {
     const photographersData = await this.photographersApi.getPhotographers();
-
-    console.log(photographersData);
-    photographersData
+    const photographers = photographersData.photographers;
+    console.log(photographers);
+    photographers
       .map((photographers) => new Photographers(photographers))
       .forEach((photographers) => {
         const Template = new photographersTemplate(photographers);
