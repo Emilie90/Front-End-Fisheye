@@ -15,7 +15,7 @@ class photographerHeaderTemplate {
                     <section class="photograph-header-profile"><span><h2 aria-label="nom du photographe">${this._photographers.name}</h2>
                          <p><span aria-label="ville" class="city-profile">${this._photographers.city}, ${this._photographers.country}</span><br>
                         <span aria-label="phrase d'accroche" class="tagline-profile">${this._photographers.tagline}</span>
-                    </p> </span><button class="contact_button" aria-label="Open contact form" onclick="displayModal()">
+                    </p> </span><button class="contact_button" aria-label="Contact me" onclick="displayModal()">
                     Contactez-moi
                   </button>
                     

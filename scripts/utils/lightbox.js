@@ -28,13 +28,13 @@ class Lightbox {
 
     const mediaContent = currentMedia.image
       ? ` <img class="gallery_thumbnail" src="./assets/images/${currentMedia.photographerId}/${currentMedia.image}" alt="${currentMedia.title}">`
-      : ` <video class="gallery_thumbnail" aria-label="${currentMedia.title}">
-                          <source src="./assets/images/${currentMedia.photographerId}/${currentMedia.video}" type="video/mp4">
-                      </video>`;
+      : ` 
+      <video controls aria-label="${currentMedia.alt}"><source src="./assets/images/${currentMedia.photographerId}/${currentMedia.video}" type="video/mp4"></video>
+                      `;
     const lightboxMedia = ` <figure
               class="lightbox__media"
               role="media"
-              aria-label="Current Media"
+              aria-label="Media closeup view"
               >${mediaContent}</figure>
               <h2>${currentMedia.title}</h2>`;
 

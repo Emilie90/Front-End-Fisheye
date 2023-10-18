@@ -15,7 +15,7 @@ class photographersTemplate {
                           src="${this._photographers.portrait}"
                       />
                   
-                  <h2 aria-label="nom du photographe">${this._photographers.name}</h2>
+                  <h2 aria-label="${this._photographers.name}">${this._photographers.name}</h2>
                   </a>
                   <p><span aria-label="ville" class="city">${this._photographers.city}, ${this._photographers.country}</span><br>
                       <span aria-label="phrase d'accroche" class="tagline">${this._photographers.tagline}</span>

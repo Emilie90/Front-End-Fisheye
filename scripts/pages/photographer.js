@@ -7,55 +7,47 @@ let params = new URLSearchParams(document.location.search);
 let id = params.get("_id");
 console.log(id);
 
-class App {
-  constructor() {
-    this.$photographersWrapper = document.querySelector(".photograph-header");
-    this.$mediaWrapper = document.querySelector(".photograph-medias-display");
-    this.$lightboxWrapper = document.querySelector(".lightbox");
-    this.$likeButton = document.querySelector(".btn_like");
+this.$photographersWrapper = document.querySelector(".photograph-header");
+this.$mediaWrapper = document.querySelector(".photograph-medias-display");
+this.$lightboxWrapper = document.querySelector(".lightbox");
+this.$likeButton = document.querySelector(".btn_like");
 
-    this.photographersApi = new PhotographersApi("/data/photographers.json");
-  }
+this.photographersApi = new PhotographersApi("/data/photographers.json");
+const getPhotographerById = async () => {
+  const { photographers, media } =
+    await this.photographersApi.getPhotographers();
 
-  async main() {
-    const { photographers, media } =
-      await this.photographersApi.getPhotographers();
+  const photographer = photographers
+    .map((photographers) => new Photographers(photographers))
+    .find((photographers) => photographers.id == id);
+  const medias = media
+    .map((media) => new MediaFactory(media))
+    .filter((media) => media.photographerId == id);
+  console.log(medias);
+  console.log(photographers);
+  return { photographer, medias };
+};
 
-    const photographer = photographers
-      .map((photographers) => new Photographers(photographers))
-      .find((photographers) => photographers.id == id);
-    const medias = media
-      .map((media) => new MediaFactory(media))
-      .filter((media) => media.photographerId == id);
-    console.log(medias);
-    console.log(photographers);
-    const Template = new photographerHeaderTemplate(photographer);
-    this.$photographersWrapper.appendChild(Template.getHeaderPhotographer());
-    const mediaTemplate = new photographerMediaTemplate(medias, photographer);
-    this.$mediaWrapper.appendChild(mediaTemplate.getMediaPhotographer());
-    const lightbox = new Lightbox(medias, photographer);
-    const links = document.querySelectorAll(".gallery_card a");
+const displayPhotographersPage = async () => {
+  const { photographer, medias } = await getPhotographerById();
 
-    links.forEach((link) =>
-      link.addEventListener("click", (e) => {
-        lightbox.buildDom(e.currentTarget.dataset.id);
-      })
-    );
+  const Template = new photographerHeaderTemplate(photographer);
+  this.$photographersWrapper.appendChild(Template.getHeaderPhotographer());
+  const mediaTemplate = new photographerMediaTemplate(medias, photographer);
+  mediaTemplate.getMediaPhotographer();
+  const lightbox = new Lightbox(medias, photographer);
+  const links = document.querySelectorAll(".gallery_card a");
 
-    const like = new DisplayLikes();
-    like.getLikes();
+  links.forEach((link) =>
+    link.addEventListener("click", (e) => {
+      lightbox.buildDom(e.currentTarget.dataset.id);
+    })
+  );
 
-    const filter = new Filter();
-    filter.getFilter(medias, mediaTemplate);
+  const like = new DisplayLikes();
+  like.getLikes();
+  showHideMenu();
+  displayMediaWithFilter(mediaTemplate);
+};
 
-    // const btnLike = document.querySelectorAll(".btn_like");
-    // btnLike.forEach((btn) => {
-    //   btn.addEventListener("click", (e) =>
-    //     like.getLikes(e.currentTarget.dataset.id)
-    //   );
-    // });
-  }
-}
-
-const app = new App();
-app.main();
+displayPhotographersPage();
