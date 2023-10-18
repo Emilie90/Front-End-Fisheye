@@ -25,8 +25,17 @@
   cursor: pointer;
 }
 
+.contact_button:hover,
+.contact_button:focus {
+  color: black;
+  background-color: var(--color-secondary);
+}
+
 .modal {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
@@ -36,6 +45,7 @@
   justify-content: space-between;
   padding: 35px;
   margin: auto;
+  z-index: 10;
 }
 
 .modal header {
@@ -128,7 +138,7 @@ form textarea {
 
 .city-profile {
   color: #901c1c;
-  font-size: 24pxpx;
+  font-size: 24px;
 }
 
 .tagline-profile {
@@ -183,6 +193,8 @@ aside {
 }
 
 figcaption h2 {
+  margin: 0;
+  display: flex;
   color: #901c1c;
   font-family: DM Sans;
   font-size: 24px;
@@ -201,13 +213,17 @@ figcaption h2 {
   color: #901c1c;
 }
 figcaption {
-  margin-top: -30px;
+  align-self: flex-start;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0;
+  margin: 0;
 }
-
+.likes {
+  align-self: flex-start;
+  display: flex;
+}
 .btn_like {
   border: none;
   background-color: white;
@@ -265,7 +281,7 @@ figcaption {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0, 50px, 0, 50px;
+  margin: 0 50px 0 50px;
   min-height: 100vh;
 }
 .lightbox__container figure {
@@ -277,6 +293,12 @@ figcaption {
 }
 
 .lightbox__container img {
+  object-fit: cover;
+  width: auto;
+  max-height: 90vh;
+}
+
+.lightbox__container video {
   object-fit: cover;
   width: auto;
   max-height: 90vh;
@@ -315,7 +337,7 @@ figcaption {
 }
 
 .dropdown {
-  z-index: 100;
+  z-index: 1;
   position: absolute;
   border-radius: 5px;
   overflow: hidden;
@@ -333,6 +355,7 @@ figcaption {
   width: 100%;
   height: 50px;
   padding: 15px;
+
   border: none;
   outline: none;
   color: #fff;
@@ -341,13 +364,19 @@ figcaption {
 }
 
 .dropdown_content li button {
+  /* border-top: 1px solid #fff; */
+  width: 100%;
+  margin-left: 0;
   background-color: transparent;
   text-align: left;
 }
 
 .dropdown_content {
+  padding: 0;
+  /* padding: 0 10px 0 10px; */
   max-height: 0;
-  background-color: var(--color-secondary);
+  margin: 0;
+  background-color: var(--color-primary);
   transition: max-height 0.2s ease-in-out;
 }
 
@@ -365,12 +394,13 @@ figcaption {
   transform: translateX(-50%);
   width: 85%;
   height: 1px;
-  background-color: var(--color-primary);
+  background-color: #fff;
 }
 
 .dropdown_content li button:hover,
+.dropdown_content li button:focus,
 .btn_drop:hover {
-  background-color: #fff;
+  background-color: var(--color-secondary);
   color: #000;
 }
 

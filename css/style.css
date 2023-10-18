@@ -8,6 +8,10 @@ body {
   --color-primary: #901c1c;
   --color-secondary: #db8876;
 }
+
+:focus {
+  outline: 2px solid var(--color-primary);
+}
 header {
   display: flex;
   flex-direction: row;
