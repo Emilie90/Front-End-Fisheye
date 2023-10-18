@@ -16,38 +16,64 @@
     <title>Fisheye - photographe</title>
   </head>
   <body>
-    <header><a href="./index.html">
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" aria-label="Return to home page"/></a>
+    <header>
+      <a href="./index.html">
+        <img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Fisheye Home page"
+          aria-label="Return to home page"
+      /></a>
     </header>
     <main id="main-photograph">
-      
       <div class="photograph-header"></div>
-      <section class="filter">
-        <h2>Trier par</h2>
-       
+      <section class="main_content">
+        <div class="filter">
+          <h2>Trier par</h2>
+
           <div class="filter_section">
-              <div class="dropdown">
-                  <button class="btn_drop">
-                      <span id="currentSort">Popularité</span>
-                      <span class="arrow"><i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+            <div class="dropdown" role="listbox">
+              <button
+                class="btn_drop"
+                type="button"
+                role="button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="filter options"
+                aria-label="Sort by"
+              >
+                <span id="currentSort">Popularité</span>
+                <span class="arrow fa fa-chevron-up" aria-hidden="true"></span>
+              </button>
+
+              <ul class="dropdown_content" aria-hidden="true">
+                <li role="option">
+                  <button id="Titre" type="button" aria-label="Sort by title">
+                    Titre
                   </button>
-  
-                  <ul class="dropdown_content" aria-hidden="true">
-                    <li role="option">
-                      <button type="button" tabindex="-1" aria-label="Sort by title">Titre</button>
-                  </li>
-                  <li role="option">
-                      <button type="button" tabindex="-1" aria-label="Sort by popularity">Popularité</button>
-                  </li>
-                  <li role="option">
-                      <button type="button" tabindex="-1" aria-label="Sort by date">Date</button>
-                  </li>
-                  </ul>
-              </div>
+                </li>
+                <li role="option">
+                  <button
+                    id="Popularité"
+                    type="button"
+                    aria-label="Sort by popularity"
+                  >
+                    Popularité
+                  </button>
+                </li>
+                <li role="option">
+                  <button id="Date" type="button" aria-label="Sort by date">
+                    Date
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
-      </div>
+        </div>
+        <div class="photograph-medias-display">
+          <div class="content_media"></div>
+        </div>
       </section>
-      <section class="photograph-medias-display"></section>
     </main>
 
     <!-- Modal -->
@@ -79,6 +105,7 @@
               class="text-control"
               type="text"
               id="prenom"
+              aria-label="First Name"
               name="prenom"
               minlength="2"
               aria-required="true"
@@ -88,6 +115,7 @@
             <input
               class="text-control"
               type="text"
+              aria-label="Last Name"
               id="nom"
               name="nom"
               aria-required="true"
@@ -96,6 +124,7 @@
             <label id="email-label" for="email">E-mail</label>
             <input
               class="text-control"
+              aria-label="Email"
               type="email"
               id="email"
               name="email"
@@ -107,6 +136,7 @@
             <textarea
               class="formField"
               aria-labelledby="message-label"
+              aria-label="your message"
               id="message"
               name="message"
               maxlength="200"
@@ -115,22 +145,24 @@
             ></textarea>
           </fieldset>
 
-          <button class="contact_button" type="submit">Envoyer</button>
+          <button class="contact_button" type="submit" aria-label="send">
+            Envoyer
+          </button>
         </form>
       </div>
     </div>
     <!-- Lightbox -->
-    <div id ="lightbox" class="lightbox" aria-modal="true" role="dialog">
-      <button class="lightbox__close"><i class="fa-solid fa-xmark"></i></button>
-            <button class="lightbox__next" aria-label="Next media">
-              <i class="fa-solid fa-chevron-right"></i>
-            </button>
-            <button class="lightbox__prev" aria-label="Previous media">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <div class="lightbox__container">
-              </div>
-      </div>
+    <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+      <button class="lightbox__close">
+        <span class="fa-solid fa-xmark" aria-label="close dialog"></span>
+      </button>
+      <button class="lightbox__next" aria-label="Next media">
+        <span class="fa-solid fa-chevron-right"></span>
+      </button>
+      <button class="lightbox__prev" aria-label="Previous media">
+        <span class="fa-solid fa-chevron-left"></span>
+      </button>
+      <div class="lightbox__container"></div>
     </div>
     <script src="scripts/api/Api.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
