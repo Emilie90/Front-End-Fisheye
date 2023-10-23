@@ -1,5 +1,6 @@
 const showHideMenu = () => {
   //Show Hide menu
+
   const btnDrop = document.querySelector(".btn_drop");
   const menu = document.querySelector(".dropdown_content");
   btnDrop.addEventListener("click", () => {
@@ -7,7 +8,6 @@ const showHideMenu = () => {
     document.querySelector(".arrow").classList.toggle("rotate");
   });
 };
-
 const displayMediaWithFilter = (mediaTemplate) => {
   const currentSort = document.querySelector("#currentSort");
   const allFilters = Array.from(
@@ -17,22 +17,10 @@ const displayMediaWithFilter = (mediaTemplate) => {
   let SelectedFilter = allFilters.find(
     (filter) => filter.id == currentSort.textContent
   );
-
   SelectedFilter.style.display = "none";
 
-  allFilters.forEach((filter) => {
-    filter.addEventListener("click", () => {
-      currentSort.textContent = filter.id;
-      if (SelectedFilter) SelectedFilter.style.display = "block";
-
-      SelectedFilter = filter;
-      SelectedFilter.style.display = "none";
-
-      sortByFilter(filter.id);
-    });
-  });
-
-  const sortByFilter = (filterValue) => {
+  // Fonction pour filtrer les médias
+  const filterMedia = (filterValue) => {
     switch (filterValue) {
       case "Titre":
         mediaTemplate._media.sort((a, b) => a.title.localeCompare(b.title));
@@ -49,6 +37,7 @@ const displayMediaWithFilter = (mediaTemplate) => {
     mediaTemplate.getMediaPhotographer();
 
     const mediasfiltered = mediaTemplate._media;
+
     const lightbox = new Lightbox(mediasfiltered);
     const links = document.querySelectorAll(".gallery_card a");
 
@@ -60,4 +49,24 @@ const displayMediaWithFilter = (mediaTemplate) => {
     const like = new DisplayLikes();
     like.getLikes();
   };
+
+  // Écouter le clic sur les filtres
+  allFilters.forEach((filter) => {
+    filter.addEventListener("click", () => {
+      currentSort.textContent = filter.id;
+      if (SelectedFilter) SelectedFilter.style.display = "block";
+
+      SelectedFilter = filter;
+      SelectedFilter.style.display = "none";
+
+      filterMedia(filter.id);
+    });
+  });
+
+  // Filtrer automatiquement au chargement de la page
+  if (SelectedFilter) {
+    filterMedia(SelectedFilter.id);
+    const like = new DisplayLikes();
+    like.getLikes();
+  }
 };

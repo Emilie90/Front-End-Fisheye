@@ -11,12 +11,14 @@ class photographerMediaTemplate {
     const displayMediaPhotographers = `
                       <div class="photograph-media">
   ${this._media
+
     .map((media) => {
       const mediaContent = media.image
         ? ` <img class="gallery_thumbnail" src="./assets/images/${media.photographerId}/${media.image}" alt="${media.title}">`
         : ` <video class="gallery_thumbnail" aria-label="${media.title}">
             <source src="./assets/images/${media.photographerId}/${media.video}" type="video/mp4">
         </video>`;
+
       return `
         <article class="gallery_card">                           
             <a href="#" data-id=${media.id} role="link" aria-label="View media large">
