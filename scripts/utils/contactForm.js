@@ -1,3 +1,4 @@
+// Sélection des éléments HTML
 const modalCloseBtn = document.querySelector(".modalCloseBtn");
 const modal = document.getElementById("contact_modal");
 const prenom = document.getElementById("prenom");
@@ -6,21 +7,23 @@ const email = document.getElementById("email");
 const message = document.getElementById("message");
 const form = document.getElementById("form");
 
+// Fonction pour afficher la modal
 const displayModal = () => {
   modal.style.display = "block";
   modalCloseBtn.focus();
 };
 
+// Fonction pour fermer la modal
 const closeModal = () => {
-  const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
 };
 
-// Close modal when escape key is pressed
+// Ferme la modal lorsque la touche "Escape" est pressée
 modal.addEventListener("keydown", (e) => {
   if (`${e.key}` === "Escape") modal.style.display = "none";
 });
 
+// Fonction pour valider le format de l'adresse e-mail
 const validerEmail = (inputEmail) => {
   let emailRegExp = new RegExp(
     "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$",
@@ -33,6 +36,8 @@ const validerEmail = (inputEmail) => {
     return true;
   }
 };
+
+// Fonction pour valider tous les champs du formulaire
 const validInput = () => {
   if (
     prenom.validity.valid &&
@@ -45,6 +50,7 @@ const validInput = () => {
   }
 };
 
+// Ajout d'un écouteur d'événements sur le formulaire pour la soumission
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const formDatas = {
