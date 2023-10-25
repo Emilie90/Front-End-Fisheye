@@ -30,9 +30,6 @@ const getPhotographerById = async () => {
     .map((media) => new MediaFactory(media))
     .filter((media) => media.photographerId == id);
 
-  console.log(medias);
-  console.log(photographer);
-
   return { photographer, medias };
 };
 
