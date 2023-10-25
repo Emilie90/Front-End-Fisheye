@@ -14,7 +14,7 @@ class photographersTemplate {
     const displayPhotographers = `
       <div class="photograph">
         <article>
-          <a href="./photographer.html?_id=${this._photographers.id}" aria-label="lien vers la fiche du photographe">
+          <a href="./photographer.html?_id=${this._photographers.id}" role="link" aria-label="lien vers la fiche de ${this._photographers.name}">
             <img 
               alt="${this._photographers.name}"
               src="${this._photographers.portrait}"
