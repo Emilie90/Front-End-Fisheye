@@ -32,14 +32,12 @@
           <h2>Trier par</h2>
 
           <div class="filter_section">
-            <div class="dropdown" role="listbox">
+            <div class="dropdown" role="listbox" aria-label="Sort by">
               <button
                 class="btn_drop"
                 type="button"
-                role="button"
                 aria-haspopup="listbox"
                 aria-expanded="false"
-                aria-controls="filter options"
                 aria-label="Sort by"
               >
                 <span id="currentSort">Popularité</span>
@@ -153,8 +151,8 @@
     </div>
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
-      <button class="lightbox__close">
-        <span class="fa-solid fa-xmark" aria-label="close dialog"></span>
+      <button class="lightbox__close" aria-label="close dialog">
+        <span class="fa-solid fa-xmark"></span>
       </button>
       <button class="lightbox__next" aria-label="Next media">
         <span class="fa-solid fa-chevron-right"></span>

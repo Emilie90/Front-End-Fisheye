@@ -37,7 +37,7 @@
   top: 80%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
-  background-color: #db8876;
+  background-color: var(--color-secondary);
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -71,7 +71,7 @@ fieldset {
 .modalCloseBtn {
   color: white;
   font-size: 64px;
-  background-color: #db8876;
+  background-color: var(--color-secondary);
   border: none;
   cursor: pointer;
 }
@@ -137,7 +137,7 @@ form textarea {
 }
 
 .city-profile {
-  color: #901c1c;
+  color: var(--color-primary);
   font-size: 24px;
 }
 
@@ -182,7 +182,7 @@ aside {
   display: flex;
   gap: 50px;
   justify-content: space-evenly;
-  background-color: #db8876;
+  background-color: var(--color-secondary);
   align-items: center;
   height: 50px;
   width: fit-content;
@@ -197,7 +197,7 @@ aside {
 figcaption h2 {
   margin: 0;
   display: flex;
-  color: #901c1c;
+  color: var(--color-primary);
   font-family: DM Sans;
   font-size: 24px;
   font-weight: 200;
@@ -212,7 +212,7 @@ figcaption h2 {
   line-height: 31px;
   letter-spacing: 0em;
   text-align: right;
-  color: #901c1c;
+  color: var(--color-primary);
 }
 figcaption {
   width: 350px;
@@ -230,7 +230,7 @@ figcaption {
 .btn_like {
   border: none;
   background-color: white;
-  color: #901c1c;
+  color: var(--color-primary);
   font-size: 24px;
   cursor: pointer;
 }
@@ -260,7 +260,7 @@ figcaption {
   right: 0;
   margin-top: -14px;
   z-index: 11;
-  color: #901c1c;
+  color: var(--color-primary);
   background-color: transparent;
 }
 
@@ -273,7 +273,7 @@ figcaption {
   font-size: 42px;
   border: none;
   background-color: transparent;
-  color: #901c1c;
+  color: var(--color-primary);
   cursor: pointer;
   position: fixed;
   top: 5px;
@@ -315,7 +315,7 @@ figcaption {
   line-height: 31px;
   letter-spacing: 0em;
   text-align: left;
-  color: #901c1c;
+  color: var(--color-primary);
 }
 
 /* Filter */
