@@ -41,16 +41,16 @@
                 aria-label="Sort by"
               >
                 <span id="currentSort">Popularité</span>
-                <span class="arrow fa fa-chevron-up" aria-hidden="true"></span>
+                <span class="arrow fa fa-chevron-up"></span>
               </button>
 
-              <ul class="dropdown_content" aria-hidden="true">
-                <li role="option">
+              <ul class="dropdown_content" role="listbox" aria-label="Sort by">
+                <li role="option" aria-label="Sort by title">
                   <button id="Titre" type="button" aria-label="Sort by title">
                     Titre
                   </button>
                 </li>
-                <li role="option">
+                <li role="option" aria-label="Sort by popularity">
                   <button
                     id="Popularité"
                     type="button"
@@ -59,7 +59,7 @@
                     Popularité
                   </button>
                 </li>
-                <li role="option">
+                <li role="option" aria-label="Sort by date">
                   <button id="Date" type="button" aria-label="Sort by date">
                     Date
                   </button>

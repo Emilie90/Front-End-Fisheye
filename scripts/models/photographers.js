@@ -7,8 +7,6 @@ class Photographers {
     this._price = photographers.price;
     this._portrait = photographers.portrait;
     this._country = photographers.country;
-
-    // id, tagline, city
   }
 
   get id() {
