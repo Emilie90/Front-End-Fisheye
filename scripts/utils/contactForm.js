@@ -20,7 +20,9 @@ const closeModal = () => {
 
 // Ferme la modal lorsque la touche "Escape" est pressée
 modal.addEventListener("keydown", (e) => {
-  if (`${e.key}` === "Escape") modal.style.display = "none";
+  if (`${e.key}` === "Escape") {
+    modal.style.display = "none";
+  }
 });
 
 // Fonction pour valider le format de l'adresse e-mail

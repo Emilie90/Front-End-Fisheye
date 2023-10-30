@@ -1,6 +1,6 @@
-const showHideMenu = () => {
-  //Show Hide menu
+// Fonction pour afficher ou masquer un menu lorsqu'un bouton est cliqué
 
+const showHideMenu = () => {
   const btnDrop = document.querySelector(".btn_drop");
   const menu = document.querySelector(".dropdown_content");
   btnDrop.addEventListener("click", () => {
@@ -8,12 +8,14 @@ const showHideMenu = () => {
     document.querySelector(".arrow").classList.toggle("rotate");
   });
 };
+
+// Fonction pour afficher les médias en fonction du filtre sélectionné
+
 const displayMediaWithFilter = (mediaTemplate) => {
   const currentSort = document.querySelector("#currentSort");
   const allFilters = Array.from(
     document.querySelectorAll(".dropdown_content li button")
   );
-
   let SelectedFilter = allFilters.find(
     (filter) => filter.id == currentSort.textContent
   );
@@ -54,7 +56,9 @@ const displayMediaWithFilter = (mediaTemplate) => {
   allFilters.forEach((filter) => {
     filter.addEventListener("click", () => {
       currentSort.textContent = filter.id;
-      if (SelectedFilter) SelectedFilter.style.display = "block";
+      if (SelectedFilter) {
+        SelectedFilter.style.display = "block";
+      }
 
       SelectedFilter = filter;
       SelectedFilter.style.display = "none";
